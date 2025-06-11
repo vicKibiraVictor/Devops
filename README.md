@@ -36,6 +36,7 @@ docker-compose logs
 docker stop container_id
 docker ps -a
 docker-compose restart
+docker stop $(docker ps -a)
 ```
 
 ### Example: To start a postgres instance
