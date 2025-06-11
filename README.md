@@ -29,3 +29,8 @@ docker run -it \
 docker rm container_id
 docker rmi image_id
 docker ps -a
+
+docker-compose up       # start all services
+docker-compose down     # stop and clean them up
+docker-compose logs     # view logs
+docker-compose restart  # restart services
