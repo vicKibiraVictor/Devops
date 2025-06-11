@@ -1,20 +1,45 @@
-# devops
+### Docker
 
+Docker is a software as a service that ships software as packages called containers.
 
-docker run --name some-postgres -e POSTGRES_PASSWORD=mysecretpassword -d postgres
+### To run a container
 
+On the terminal run
 
-psql -h 172.17.0.2 -p 5432 -d postgres
+```bash
+docker run hello-world
+```
 
+### To check running containers
 
-docker run -it \
-  --name postgres-one \
-  --network my-network \
-  -e POSTGRES_PASSWORD=root \
-  -e POSTGRES_USER=root \
-  -e POSTGRES_DB=root \
-  -d postgres
+```
+docker ps
+```
 
+### To inspect a container
+
+```
+docker inspect container_id
+```
+
+### Useful docker commands
+```
+docker inspect container_id
+docker rm container_id
+docker rmi image_id
+docker logs container_id
+docker volume ls
+docker network create network_name
+docker-compose up
+docker-compose down
+docker-compose logs
+docker stop container_id
+docker ps -a
+docker-compose restart
+```
+
+### Example: To start a postgres instance
+```
 docker run -it \
   --name postgres-two \
   --network my-network \
@@ -25,12 +50,14 @@ docker run -it \
   -v postgres_data:/var/lib/postgresql/data \
   -d postgres
 
+```
+### To access it
 
-docker rm container_id
-docker rmi image_id
-docker ps -a
 
-docker-compose up       # start all services
-docker-compose down     # stop and clean them up
-docker-compose logs     # view logs
-docker-compose restart  # restart services
+```
+psql -h 172.17.0.2 -p 5432 -d postgres
+
+```
+### License
+
+[MIT](https://choosealicense.com/licenses/mit/)
