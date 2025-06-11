@@ -59,6 +59,15 @@ docker run -it \
 psql -h 172.17.0.2 -p 5432 -d postgres
 
 ```
+### To build a docker image
+First create a docker file for the application,and then run
+
+```
+docker build -t hello-python .
+docker run --rm hello-python
+
+```
+
 ### License
 
 [MIT](https://choosealicense.com/licenses/mit/)
