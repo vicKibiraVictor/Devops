@@ -14,3 +14,8 @@ docker run -it \
   -e POSTGRES_USER=root \
   -e POSTGRES_DB=root \
   -d postgres
+
+
+docker rm container_id
+docker rmi image_id
+docker ps -a
