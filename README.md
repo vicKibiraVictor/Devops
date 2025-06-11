@@ -71,3 +71,12 @@ docker run --rm hello-python
 ### License
 
 [MIT](https://choosealicense.com/licenses/mit/)
+
+
+ ### Debugging
+ docker logs container_id
+ docker exec -it container_id bin/bash
+ docker inspect container_id
+
+
+
