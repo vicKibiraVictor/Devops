@@ -29,6 +29,7 @@ docker rm container_id
 docker rmi image_id
 docker logs container_id
 docker volume ls
+docker network ls
 docker network create network_name
 docker-compose up
 docker-compose down
@@ -68,15 +69,30 @@ docker run --rm hello-python
 
 ```
 
+ ### Debugging containers
+ ```
+ docker logs container_id
+ docker exec -it container_id bin/bash
+ docker inspect container_id
+```
+### Demo Project
+Build a  custom docker image and run it
+
+A simple py application that reads csv file,cleans it alittle bit,and rewrites it back to a csv/or saves it as a pickle ,xlsx
+
+```
+ docker build -t image_name .
+ docker run --rm image_name
+```
+
+### Capstone project
+Deploy jupyter notebooks in docker
+
+
 ### License
 
 [MIT](https://choosealicense.com/licenses/mit/)
 
-
- ### Debugging
- docker logs container_id
- docker exec -it container_id bin/bash
- docker inspect container_id
 
 
 
