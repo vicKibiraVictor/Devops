@@ -1,10 +1,10 @@
-### How to spin up the docker compose
+### How to spin up the services
 ```
 docker-compose up
 docker-compose up -d
 ```
 
-### How to spin down
+### How to spin down the services
 ```
 docker-compose down
 ```
