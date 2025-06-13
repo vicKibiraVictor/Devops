@@ -41,6 +41,29 @@ cat cleaned_data.csv
 ```
 Boom, you have your application dockerised.
 
+### Why dockerize the application
+✅ 1. Consistent Environment
+Ensures the app runs the same in development, testing, and production.
+
+Eliminates the "it works on my machine" problem.
+
+✅ 2. Isolation
+Runs in a self-contained environment, avoiding conflicts with other apps or system dependencies.
+
+✅ 3. Portability
+The containerized app can run anywhere: local machines, servers, or cloud platforms.
+
+✅ 4. Simplified Deployment
+Easy to deploy and scale using Docker commands or orchestration tools like Docker Compose and Kubernetes.
+
+✅ 5. Easy Integration with CI/CD
+Works seamlessly in automated pipelines for building, testing, and deploying.
+
+✅ 6. Dependency Management
+All dependencies are defined in the Dockerfile, making setup and onboarding easy.
+
+✅ 7. Reproducibility
+
 ### Next steps
 Push the image to docker hub,to have ur own custom image
 
