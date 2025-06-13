@@ -89,10 +89,5 @@ A simple py application that reads csv file,cleans it alittle bit,and rewrites i
 Deploy jupyter notebooks in docker
 
 
-### License
-
-[MIT](https://choosealicense.com/licenses/mit/)
-
-
 
 
