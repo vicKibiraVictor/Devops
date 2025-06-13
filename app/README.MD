@@ -68,6 +68,3 @@ All dependencies are defined in the Dockerfile, making setup and onboarding easy
 Push the image to docker hub,to have ur own custom image
 
 
-### License
-
-[MIT](https://choosealicense.com/licenses/mit/)
