@@ -83,6 +83,8 @@ A simple py application that reads csv file,cleans it alittle bit,and rewrites i
 ```
  docker build -t image_name .
  docker run --rm image_name
+ docker run -it image_name
+ docker run -it image_name bin/bash
 ```
 
 ### Capstone project
