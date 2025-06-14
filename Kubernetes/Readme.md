@@ -231,3 +231,15 @@ spec:
 minikube service mongo-express-service
 kubectl port-forward service/mongo-express-service 8081:8081
 ```
+
+### Namespaces
+Namespaces in Kubernetes are like virtual clusters within a single physical cluster. They help you organize and manage resources in a multi-team or multi-project environment.
+
+### Why Use Namespaces?
+- Isolation: Separate environments (e.g., dev, test, prod) within one cluster.
+
+- Resource Quotas: Limit CPU/memory usage per team or application.
+
+- Name Conflicts: Avoid resource name collisions (e.g., multiple nginx services across teams).
+
+- Access Control: Apply RBAC rules per namespace for fine-grained security.
