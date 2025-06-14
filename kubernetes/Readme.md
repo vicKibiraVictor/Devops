@@ -446,13 +446,13 @@ Observability tools help monitor and troubleshoot Kubernetes apps.
 
 Common components:
 
-Metrics: CPU, memory usage (metrics-server, Prometheus).
+- Metrics: CPU, memory usage (metrics-server, Prometheus).
 
-Logs: Container logs (kubectl logs, EFK stack, Loki).
+- Logs: Container logs (kubectl logs, EFK stack, Loki).
 
-Traces: Distributed tracing (Jaeger, OpenTelemetry).
+- Traces: Distributed tracing (Jaeger, OpenTelemetry).
 
-Dashboards: Visual monitoring tools like Grafana, Lens, K9s, Kubernetes Dashboard.
+- Dashboards: Visual monitoring tools like Grafana, Lens, K9s, Kubernetes Dashboard.
 
 
 ### RBAC (Role-Based Access Control)
@@ -460,10 +460,10 @@ RBAC restricts access to Kubernetes resources.
 
 Key components:
 
-Role: Defines permissions within a namespace.
+- Role: Defines permissions within a namespace.
 
-ClusterRole: Same as Role but cluster-wide.
+- lusterRole: Same as Role but cluster-wide.
 
-RoleBinding: Grants a Role to a user/service account.
+- RoleBinding: Grants a Role to a user/service account.
 
-ClusterRoleBinding: Grants a ClusterRole to a user/service account across the cluster.
+- ClusterRoleBinding: Grants a ClusterRole to a user/service account across the cluster.
