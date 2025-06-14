@@ -619,3 +619,7 @@ helm search repo nginx
 
 - Use helm diff (via plugin) before upgrading to see changes.
 
+```
+kubectl port-forward pod/mongo-express-74cfbdd7ff-kksq2 8081:8081
+
+```
