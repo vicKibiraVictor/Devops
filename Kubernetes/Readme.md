@@ -40,3 +40,27 @@
 - Contoller Manager - Detects state changes like crashing of pods.
 
 - ETCD - Is the cluster brain.Its a key value store for any change in the cluster.
+
+### What is Minikube?
+One node k8s cluster that runs on your local machine.
+Allows you to test and work with kubernetes locally.
+Runs master and worker nodes.
+
+### Kubectl
+This a commandline tool that enables you to interact with minikube.
+Not for minikube alone,but also for any cluster.
+
+### Minikube Installation
+On MacOS
+
+```
+curl -LO https://github.com/kubernetes/minikube/releases/latest/download/minikube-darwin-amd64
+sudo install minikube-darwin-amd64 /usr/local/bin/minikube
+
+```
+On Linux
+```
+curl -LO https://github.com/kubernetes/minikube/releases/latest/download/minikube-linux-amd64
+sudo install minikube-linux-amd64 /usr/local/bin/minikube && rm minikube-linux-amd64
+
+```
