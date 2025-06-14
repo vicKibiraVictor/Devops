@@ -29,14 +29,14 @@
              Very tidious.
 
 ### Kubernetes Architecture
-Worker nodes : Container runtime.
+- Worker nodes : Container runtime.
                Kubelet.
                Kube proxy.
 
-Master nodes: API Server(acts as a gatekeeper for the authentication).
+- Master nodes: API Server(acts as a gatekeeper for the authentication).
 
-Scheduler - Looks at where to put the pod.
+- Scheduler - Looks at where to put the pod.
 
-Contoller Manager - Detects state changes like crashing of pods.
+- Contoller Manager - Detects state changes like crashing of pods.
 
-ETCD - Is the cluster brain.Its a key value store for any change in the cluster.
+- ETCD - Is the cluster brain.Its a key value store for any change in the cluster.
