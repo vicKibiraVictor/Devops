@@ -51,19 +51,24 @@ This a commandline tool that enables you to interact with minikube.
 Not for minikube alone,but also for any cluster.
 
 ### Minikube Installation
+Follow the link to  download minikube for various os's
 
 https://minikube.sigs.k8s.io/docs/start/?arch=%2Flinux%2Fx86-64%2Fstable%2Fbinary+download
 
 On MacOS
 
 ```
-curl -LO https://github.com/kubernetes/minikube/releases/latest/download/minikube-darwin-amd64
-sudo install minikube-darwin-amd64 /usr/local/bin/minikube
-
+brew update
+brew install hyperkit
+brew install minikube
+kubectl
+minikube
 ```
-On Linux
-```
-curl -LO https://github.com/kubernetes/minikube/releases/latest/download/minikube-linux-amd64
-sudo install minikube-linux-amd64 /usr/local/bin/minikube && rm minikube-linux-amd64
 
+### Start a cluster
+```
+minikube start --vm-driver=hyperkit
+kubectl get nodes
+minikube status
+kubectl version
 ```
