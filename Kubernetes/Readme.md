@@ -224,3 +224,10 @@ spec:
 
 - volumeMounts and volumes: For attaching external or persistent storage.
 
+
+
+### To access the mongo express 
+```
+minikube service mongo-express-service
+kubectl port-forward service/mongo-express-service 8081:8081
+```
