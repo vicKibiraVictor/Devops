@@ -73,3 +73,10 @@ kubectl get nodes
 minikube status
 kubectl version
 ```
+
+### Delete cluster and restart in debug mode
+```
+minikube delete
+minikube start --vm-driver=hyperkit --v=7 --alsologtostderr
+minikube status
+```
