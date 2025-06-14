@@ -250,3 +250,11 @@ sudo wget https://raw.githubusercontent.com/ahmetb/kubectx/master/kubens -O /usr
 sudo chmod +x /usr/local/bin/kubens
 
 ```
+### Check all the namespaces
+```
+kubens
+```
+### Switch to a namespace
+```
+kubens namespace-name
+```
