@@ -80,3 +80,14 @@ minikube delete
 minikube start --vm-driver=hyperkit --v=7 --alsologtostderr
 minikube status
 ```
+
+### Kubectl commands
+```
+kubectl get nodes
+kubectl get pod
+kubectl get services
+kubectl create deployment nginx-depl --image=nginx
+kubectl get deployment
+kubectl get replicaset
+kubectl edit deployment nginx-depl
+```
