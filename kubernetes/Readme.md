@@ -581,14 +581,38 @@ my-chart/
 ```
 ### Common Helm Commands
 
-- Install Helm chart:	helm install myapp ./my-chart
-- Uninstall release:	helm uninstall myapp
-- Upgrade chart:	helm upgrade myapp ./my-chart
-- View current values:	helm get values myapp
-- Lint your chart:	helm lint ./my-chart
-- Create a new chart:	helm create my-chart
-- Add chart repo:	helm repo add bitnami https://charts.bitnami.com/bitnami
-- Search charts:	helm search repo nginx
+- Install Helm chart:
+```
+	helm install myapp ./my-chart
+```
+- Uninstall release:
+```
+	helm uninstall myapp
+```
+- Upgrade chart:
+```
+	helm upgrade myapp ./my-chart
+```
+- View current values:
+```
+	helm get values myapp
+```
+- Lint your chart:	
+```
+helm lint ./my-chart
+```
+- Create a new chart:	
+```
+helm create my-chart
+```
+- Add chart repo:
+```
+	helm repo add bitnami https://charts.bitnami.com/bitnami
+```
+- Search charts:	
+```
+helm search repo nginx
+```
 
 ###  Pro Tips
 - Store Helm charts in a Git repo for version control.
