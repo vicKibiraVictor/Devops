@@ -51,6 +51,9 @@ This a commandline tool that enables you to interact with minikube.
 Not for minikube alone,but also for any cluster.
 
 ### Minikube Installation
+
+https://minikube.sigs.k8s.io/docs/start/?arch=%2Flinux%2Fx86-64%2Fstable%2Fbinary+download
+
 On MacOS
 
 ```
