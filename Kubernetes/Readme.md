@@ -145,6 +145,7 @@ spec:
 
 ```
 ### Breakdown of each section
+```
 1. apiVersion
 Specifies the Kubernetes API version to use for the object.
 
@@ -181,7 +182,7 @@ labels & annotations: Used for grouping, selection, and extra metadata.
 4. spec (Specification)
 Defines the desired state of the object.
 Its contents depend on the kind you're creating.
-
+```
 ### Example: Deployment Manifest
 ```
 apiVersion: apps/v1
