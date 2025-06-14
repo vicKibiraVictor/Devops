@@ -127,3 +127,20 @@ kubectl delete -f nginx-deployment.yaml
 ```
 kubectl top
 ```
+
+###  Kubernetes Manifest Structure
+A manifest is configuration file written in YAML that tells Kubernetes what you want to create,run or manage-such as deployments,services etc.
+
+### Basic structure of any manifest
+Every Kubernetes manifest file shows this general structure:
+```
+apiVersion: <API version>   # e.g., apps/v1 or v1
+kind: <Resource type>       # e.g., Deployment, Pod
+metadata:
+  name: <Name of the resource>
+  labels:                   # Optional but useful for selectors
+    key: value
+spec:
+  # Configuration specific to the kind of resource
+
+```
