@@ -1,0 +1,79 @@
+#user-. real human authtenticating via certifica
+#serviceaccount -> used by a pod or controller inside the cluster
+
+#Role -> perimissions within a namespace
+#RoleBinding -> connects a role to a subject in a cluster
+#ClusterRole -> permissions within the entire cluster
+#ClusterRoleBinding -> connects a clusterole to a subject
+
+#Let’s create a Role that allows listing pods in a namespace called dev, and bind it to a ServiceAccount.
+kubectl create namespace dev
+kubectl create serviceaccount myapp-sa -n dev 
+
+#create role-pod-reader.yaml
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  namespace: dev
+  name: pod-reader
+rules:
+- apiGroups: [""]
+  resources: ["pods"]
+  verbs: ["get", "list"]
+
+---
+
+#create role-binding.yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: read-pods-binding
+  namespace: dev
+subjects:
+- kind: ServiceAccount
+  name: myapp-sa
+  namespace: dev
+roleRef:
+  kind: Role
+  name: pod-reader
+  apiGroup: rbac.authorization.k8s.io
+
+
+
+#kubectl apply -f role-pod-reader.yaml
+#kubectl apply -f rolebinding-pod-reader.yaml
+
+#Cluster-Wide Access with ClusterRole and ClusterRoleBinding
+#Use this when you want to give access to cluster-wide resources or to access the same resources in all namespaces.
+
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: cluster-pod-reader
+rules:
+- apiGroups: [""]
+  resources: ["pods"]
+  verbs: ["get", "list"]
+
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: alice-read-all-pods
+subjects:
+- kind: User
+  name: alice
+roleRef:
+  kind: ClusterRole
+  name: cluster-pod-reader
+  apiGroup: rbac.authorization.k8s.io
+
+#kubectl auth can-i list pods --as=alice --all-namespaces
+#kubectl auth can-i create configmaps --namespace=staging --as=alice
+#kubectl auth can-i get pods --as=system:serviceaccount:dev:myapp-sa -- this is testing as a servic account
+#kubectl auth can-i get pods --as=jane
+
+
+

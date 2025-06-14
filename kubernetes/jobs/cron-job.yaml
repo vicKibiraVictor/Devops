@@ -1,0 +1,19 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: nginx-check-cronjob
+spec:
+  schedule: "*/1 * * * *"  # Every 1 minute
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: curl
+            image: curlimages/curl:latest
+            command: ["sh", "-c"]
+            args:
+              - |
+                echo "Scheduled check of NGINX homepage...";
+                curl -I http://nginx-service:80;
+          restartPolicy: OnFailure
