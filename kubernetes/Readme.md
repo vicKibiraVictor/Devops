@@ -413,24 +413,57 @@ kubectl apply -f mongo-express-ingress.yaml
 3. Open in browser: http://mongo-express.local
 
 ###  Ports
-- containerPort, targetPort, nodePort, hostPort
-- Used for communication between containers, services, and external clients.
+- containerPort: Port the container listens on internally. 
+- targetPort:  Port the Pod receives traffic on.
+- port: Port exposed by the service.
+- nodePort:  Port exposed on the Node IP (external access). 
+- hostPort:  Exposes a container port directly on the host (less common, often avoided).
+
+Used for communication between containers, services, and external clients.
 
 ### Storage Volumes
-- Volumes like `emptyDir`, `hostPath`, and `persistentVolumeClaim` ensure data persistence.
-- Used for databases, caching, and sharing data between containers.
+Kubernetes volumes allow data to persist beyond container restarts.
+
+- EmptyDir: Temporary storage; data lost when the Pod is deleted.
+
+- hostPath: Mounts a file/folder from the host into the Pod (not portable).
+
+- PersistentVolume (PV) and PersistentVolumeClaim (PVC): Abstraction for durable storage (e.g., EBS, NFS, cloud disks).
+
+Used for databases, caching, and sharing data between containers.
 
 ###  Health Checks
-- Liveness Probe: Is the app alive?
-- Readiness Probe: Is the app ready to serve traffic?
-- Startup Probe: Does the app need time to start?
+Kubernetes uses probes to monitor the health of containers:
+
+- Liveness Probe: Checks if the container is alive. If it fails, Kubernetes restarts it.
+
+- Readiness Probe: Checks if the container is ready to receive traffic. If not, it’s removed from the service endpoint.
+
+- Startup Probe: Ensures the app has started before the other two probes kick in.
 
 ### Observability
-- Logs: `kubectl logs`, Loki
-- Metrics: `Prometheus`, `metrics-server`
-- Tracing: `Jaeger`, `OpenTelemetry`
-- Dashboards: `Grafana`, `Lens`, `K9s`
+Observability tools help monitor and troubleshoot Kubernetes apps.
+
+Common components:
+
+Metrics: CPU, memory usage (metrics-server, Prometheus).
+
+Logs: Container logs (kubectl logs, EFK stack, Loki).
+
+Traces: Distributed tracing (Jaeger, OpenTelemetry).
+
+Dashboards: Visual monitoring tools like Grafana, Lens, K9s, Kubernetes Dashboard.
+
 
 ### RBAC (Role-Based Access Control)
-- Secure your cluster by giving users/service accounts only the access they need.
-- Use `Role`, `RoleBinding`, `ClusterRole`, and `ClusterRoleBinding` to manage permissions.
+RBAC restricts access to Kubernetes resources.
+
+Key components:
+
+Role: Defines permissions within a namespace.
+
+ClusterRole: Same as Role but cluster-wide.
+
+RoleBinding: Grants a Role to a user/service account.
+
+ClusterRoleBinding: Grants a ClusterRole to a user/service account across the cluster.
