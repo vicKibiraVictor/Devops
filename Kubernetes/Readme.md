@@ -208,18 +208,18 @@ spec:
 
 ```
 ### Highlights
-replicas: Number of Pod copies to run.
+- replicas: Number of Pod copies to run.
 
-selector: Matches Pods with label app: nginx.
+- selector: Matches Pods with label app: nginx.
 
-template: Describes the Pod to be created (like a Pod manifest inside the Deployment).
+- template: Describes the Pod to be created (like a Pod manifest inside the Deployment).
 
 ### Optional fields across manifests
-status: Set by Kubernetes after creation — do not include manually.
+- status: Set by Kubernetes after creation — do not include manually.
 
-resources: Define CPU and memory requests and limits.
+- resources: Define CPU and memory requests and limits.
 
-env: Set environment variables inside containers.
+- env: Set environment variables inside containers.
 
-volumeMounts and volumes: For attaching external or persistent storage.
+- volumeMounts and volumes: For attaching external or persistent storage.
 
