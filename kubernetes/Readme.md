@@ -551,13 +551,13 @@ spec:
 Helm simplifies deploying applications in Kubernetes by using charts — pre-configured templates for Kubernetes resources.
 
 ###  Why Use Helm?
-Manage complex Kubernetes apps as a single unit.
+- Manage complex Kubernetes apps as a single unit.
 
-Reuse and share configurations easily.
+- Reuse and share configurations easily.
 
-Customize deployments with simple variables.
+- Customize deployments with simple variables.
 
-Rollback updates if something breaks.
+- Rollback updates if something breaks.
 
 ### Helm Concepts
 
@@ -579,3 +579,19 @@ my-chart/
 ├── Chart.yaml           # Chart metadata
 └── README.md
 ```
+### Common Helm Commands
+
+- Install Helm chart:	helm install myapp ./my-chart
+- Uninstall release:	helm uninstall myapp
+- Upgrade chart:	helm upgrade myapp ./my-chart
+- View current values:	helm get values myapp
+- Lint your chart:	helm lint ./my-chart
+- Create a new chart:	helm create my-chart
+- Add chart repo:	helm repo add bitnami https://charts.bitnami.com/bitnami
+- Search charts:	helm search repo nginx
+
+###  Pro Tips
+- Store Helm charts in a Git repo for version control.
+
+- Use helm diff (via plugin) before upgrading to see changes.
+
