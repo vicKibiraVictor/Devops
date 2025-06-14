@@ -462,7 +462,7 @@ Key components:
 
 - Role: Defines permissions within a namespace.
 
-- lusterRole: Same as Role but cluster-wide.
+- ClusterRole: Same as Role but cluster-wide.
 
 - RoleBinding: Grants a Role to a user/service account.
 
