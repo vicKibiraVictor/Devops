@@ -94,6 +94,6 @@ kubectl edit deployment nginx-depl
 
 ### Debugging
 ```
-kubectl logs pod-name
-kubectl exec -it pod-name --/bin/bash
+kubectl logs {pod-name}
+kubectl exec -it {pod-name} --/bin/bash
 ```
