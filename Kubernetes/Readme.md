@@ -103,3 +103,16 @@ kubectl create deployment mongo-depl --image=mongo
 kubectl logs mongo-depl-{pod-name}
 kubectl describe pod mongo-depl-{pod-name}
 ```
+### Delete deployment
+```
+kubectl delete deployment mongo-depl
+kubectl delete deployment nginx-depl
+```
+
+### Create or edit config file
+```
+nano nginx-deployment.yml
+kubectl apply -f nginx-deployment.yaml
+kubectl get pod
+kubectl get deployment
+```
