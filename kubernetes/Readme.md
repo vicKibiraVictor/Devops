@@ -379,7 +379,21 @@ metadata:
 - PathType:
 
 Prefix matches all requests under /.
+### Enable ingress
+```
+ minikube addons enable ingress
 
+```
+###  Check Ingress Controller is Running
+```
+kubectl get pods -n ingress-nginx
+
+```
+### Get the minikube ip
+```
+minikube ip
+
+```
 ###  Accessing the App via Ingress
 To make mongo-express.local work:
 
