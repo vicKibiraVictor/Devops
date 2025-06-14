@@ -67,6 +67,7 @@ minikube
 
 ### Start a cluster
 ```
+minikube start
 minikube start --vm-driver=hyperkit
 kubectl get nodes
 minikube status
