@@ -258,3 +258,12 @@ kubens
 ```
 kubens namespace-name
 ```
+### Ingress
+Ingress is a Kubernetes object that manages external access to services in a cluster, typically HTTP/HTTPS traffic. Instead of exposing each service with a NodePort or LoadBalancer, you can use Ingress to route requests based on the URL or host.
+
+### Why Use Ingress?
+🔀 Smart Routing: Route traffic to different services based on path (/api, /app) or host (app.example.com, api.example.com).
+
+🔐 TLS/HTTPS Support: Easily configure SSL with cert-manager or your own certificates.
+
+🧱 Centralized Entry Point: Acts as a gateway to your cluster's services.
