@@ -97,3 +97,9 @@ kubectl edit deployment nginx-depl
 kubectl logs {pod-name}
 kubectl exec -it {pod-name} --/bin/bash
 ```
+### create mongo deployment
+```
+kubectl create deployment mongo-depl --image=mongo
+kubectl logs mongo-depl-{pod-name}
+kubectl describe pod mongo-depl-{pod-name}
+```
