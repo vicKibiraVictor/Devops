@@ -144,3 +144,82 @@ spec:
   # Configuration specific to the kind of resource
 
 ```
+### Breakdown of each section
+1. apiVersion
+Specifies the Kubernetes API version to use for the object.
+
+v1 — for core resources like Pod, Service, ConfigMap
+
+apps/v1 — for higher-level resources like Deployment, StatefulSet
+
+2. kind
+Declares what type of object you're creating.
+
+Examples include:
+
+Pod
+
+Deployment
+
+Service
+
+ConfigMap
+
+Secret
+
+Ingress
+
+3. metadata
+Provides identifying information about the resource.
+
+name: (Required) Unique name within the namespace.
+
+namespace: (Optional) Defaults to default if omitted.
+
+labels & annotations: Used for grouping, selection, and extra metadata.
+
+4. spec (Specification)
+Defines the desired state of the object.
+Its contents depend on the kind you're creating.
+
+### Example: Deployment Manifest
+```
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-depl
+  labels:
+    app: nginx
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:latest
+        ports:
+        - containerPort: 80
+
+```
+### Highlights
+replicas: Number of Pod copies to run.
+
+selector: Matches Pods with label app: nginx.
+
+template: Describes the Pod to be created (like a Pod manifest inside the Deployment).
+
+### Optional fields across manifests
+status: Set by Kubernetes after creation — do not include manually.
+
+resources: Define CPU and memory requests and limits.
+
+env: Set environment variables inside containers.
+
+volumeMounts and volumes: For attaching external or persistent storage.
+
