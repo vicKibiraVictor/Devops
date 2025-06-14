@@ -411,3 +411,26 @@ kubectl apply -f mongo-express-ingress.yaml
 ```
 
 3. Open in browser: http://mongo-express.local
+
+###  Ports
+- containerPort, targetPort, nodePort, hostPort
+- Used for communication between containers, services, and external clients.
+
+### Storage Volumes
+- Volumes like `emptyDir`, `hostPath`, and `persistentVolumeClaim` ensure data persistence.
+- Used for databases, caching, and sharing data between containers.
+
+###  Health Checks
+- Liveness Probe: Is the app alive?
+- Readiness Probe: Is the app ready to serve traffic?
+- Startup Probe: Does the app need time to start?
+
+### Observability
+- Logs: `kubectl logs`, Loki
+- Metrics: `Prometheus`, `metrics-server`
+- Tracing: `Jaeger`, `OpenTelemetry`
+- Dashboards: `Grafana`, `Lens`, `K9s`
+
+### RBAC (Role-Based Access Control)
+- Secure your cluster by giving users/service accounts only the access they need.
+- Use `Role`, `RoleBinding`, `ClusterRole`, and `ClusterRoleBinding` to manage permissions.
