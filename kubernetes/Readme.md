@@ -583,19 +583,19 @@ my-chart/
 
 - Install Helm chart:
 ```
-	helm install myapp ./my-chart
+helm install myapp ./my-chart
 ```
 - Uninstall release:
 ```
-	helm uninstall myapp
+helm uninstall myapp
 ```
 - Upgrade chart:
 ```
-	helm upgrade myapp ./my-chart
+helm upgrade myapp ./my-chart
 ```
 - View current values:
 ```
-	helm get values myapp
+helm get values myapp
 ```
 - Lint your chart:	
 ```
@@ -607,7 +607,7 @@ helm create my-chart
 ```
 - Add chart repo:
 ```
-	helm repo add bitnami https://charts.bitnami.com/bitnami
+helm repo add bitnami https://charts.bitnami.com/bitnami
 ```
 - Search charts:	
 ```
