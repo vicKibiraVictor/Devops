@@ -116,3 +116,7 @@ kubectl apply -f nginx-deployment.yaml
 kubectl get pod
 kubectl get deployment
 ```
+### Delete with config
+```
+kubectl delete -f nginx-deployment.yaml
+```
