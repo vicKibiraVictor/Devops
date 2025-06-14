@@ -368,3 +368,32 @@ metadata:
     nginx.ingress.kubernetes.io/ssl-redirect: "true"
 
 ```
+### Putting it all together in our project(demo project)
+### Notes
+- Host-based Routing: Routes requests from http://mongo-express.local to the mongo-express-service.
+
+- Annotations:
+
+- rewrite-target: / ensures that URLs like /dashboard are passed cleanly to the backend.
+
+- PathType:
+
+Prefix matches all requests under /.
+
+###  Accessing the App via Ingress
+To make mongo-express.local work:
+
+1. Add it to your local /etc/hosts file:
+```
+sudo echo "127.0.0.1 mongo-express.local" | sudo tee -a /etc/hosts
+
+```
+If using Minikube, replace 127.0.0.1 with minikube ip.
+
+2. Apply the Ingress:
+```
+kubectl apply -f mongo-express-ingress.yaml
+
+```
+
+3. Open in browser: http://mongo-express.local
