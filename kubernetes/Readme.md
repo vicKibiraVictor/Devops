@@ -546,3 +546,36 @@ spec:
 - Always set restartPolicy: Never or OnFailure for jobs.
 
 - Monitor job success/failure with kubectl get jobs and kubectl describe job <job-name>.
+
+### Helm
+Helm simplifies deploying applications in Kubernetes by using charts — pre-configured templates for Kubernetes resources.
+
+###  Why Use Helm?
+Manage complex Kubernetes apps as a single unit.
+
+Reuse and share configurations easily.
+
+Customize deployments with simple variables.
+
+Rollback updates if something breaks.
+
+### Helm Concepts
+
+- Chart:	A Helm package containing YAML templates, values, and metadata.
+- Release:	A specific instance of a chart deployed in your cluster.
+- Values:	Customizable configurations (like values.yaml) that override chart defaults.
+- Templates:	Kubernetes manifest files written with Go templating.
+- Repositories:	Hosts charts you can download and install.
+
+### Helm folder structure
+```
+my-chart/
+├── charts/              # Dependencies
+├── templates/           # YAML templates for resources
+│   ├── deployment.yaml
+│   ├── service.yaml
+│   └── _helpers.tpl
+├── values.yaml          # Default values
+├── Chart.yaml           # Chart metadata
+└── README.md
+```
