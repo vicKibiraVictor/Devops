@@ -243,3 +243,10 @@ Namespaces in Kubernetes are like virtual clusters within a single physical clus
 - Name Conflicts: Avoid resource name collisions (e.g., multiple nginx services across teams).
 
 - Access Control: Apply RBAC rules per namespace for fine-grained security.
+
+### How to intall kubectx + kubens
+```
+sudo wget https://raw.githubusercontent.com/ahmetb/kubectx/master/kubens -O /usr/local/bin/kubens
+sudo chmod +x /usr/local/bin/kubens
+
+```
