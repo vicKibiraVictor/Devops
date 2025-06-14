@@ -262,8 +262,109 @@ kubens namespace-name
 Ingress is a Kubernetes object that manages external access to services in a cluster, typically HTTP/HTTPS traffic. Instead of exposing each service with a NodePort or LoadBalancer, you can use Ingress to route requests based on the URL or host.
 
 ### Why Use Ingress?
-🔀 Smart Routing: Route traffic to different services based on path (/api, /app) or host (app.example.com, api.example.com).
+- Smart Routing: Route traffic to different services based on path (/api, /app) or host (app.example.com, api.example.com).
 
-🔐 TLS/HTTPS Support: Easily configure SSL with cert-manager or your own certificates.
+- TLS/HTTPS Support: Easily configure SSL with cert-manager or your own certificates.
 
-🧱 Centralized Entry Point: Acts as a gateway to your cluster's services.
+- Centralized Entry Point: Acts as a gateway to your cluster's services.
+
+### Types of Ingress Configurations
+Kubernetes Ingress can be configured in various ways depending on how traffic should be routed to services. Here are the main types:
+### 1. Single Service Ingress (Basic Routing)
+Routes all HTTP requests to a single backend service.
+
+```
+rules:
+- http:
+    paths:
+    - path: /
+      pathType: Prefix
+      backend:
+        service:
+          name: my-service
+          port:
+            number: 80
+
+```
+### 2. Path-Based Routing
+Routes requests to different services based on URL paths.
+
+```
+rules:
+- host: myapp.local
+  http:
+    paths:
+    - path: /api
+      pathType: Prefix
+      backend:
+        service:
+          name: api-service
+          port:
+            number: 80
+    - path: /app
+      pathType: Prefix
+      backend:
+        service:
+          name: frontend-service
+          port:
+            number: 80
+
+```
+### Host-Based Routing
+Routes traffic based on domain name (host).
+```
+rules:
+- host: api.example.com
+  http:
+    paths:
+    - path: /
+      pathType: Prefix
+      backend:
+        service:
+          name: api-service
+          port:
+            number: 80
+- host: app.example.com
+  http:
+    paths:
+    - path: /
+      pathType: Prefix
+      backend:
+        service:
+          name: frontend-service
+          port:
+            number: 80
+
+```
+### Ingress with TLS (HTTPS)
+Secure services using TLS (HTTPS) certificates.
+
+```
+tls:
+- hosts:
+  - myapp.local
+  secretName: tls-secret  # must contain TLS cert and key
+
+rules:
+- host: myapp.local
+  http:
+    paths:
+    - path: /
+      pathType: Prefix
+      backend:
+        service:
+          name: my-service
+          port:
+            number: 80
+
+```
+### Ingress with Rewrite and Redirect Annotations
+Customize behavior with annotations like URL rewrites, redirects, or rate limiting (depends on Ingress Controller).
+
+```
+metadata:
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+
+```
