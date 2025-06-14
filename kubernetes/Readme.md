@@ -467,3 +467,82 @@ Key components:
 - RoleBinding: Grants a Role to a user/service account.
 
 - ClusterRoleBinding: Grants a ClusterRole to a user/service account across the cluster.
+
+### Kubernetes Jobs
+Kubernetes Jobs are used to run one-off or batch tasks that run to completion.
+
+### Use Cases
+- Database migrations
+
+- Data backups or restores
+
+- Sending emails in bulk
+
+- Cleanup scripts
+
+- Scheduled data transformations
+
+### Types of Jobs
+### Standard Job
+Runs a pod to completion a specific number of times.
+```
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: hello-job
+spec:
+  template:
+    spec:
+      containers:
+        - name: hello
+          image: busybox
+          command: ["echo", "Hello from Kubernetes Job"]
+      restartPolicy: Never
+```
+### Parallel Jobs
+Run multiple pods in parallel for the same task.
+```
+spec:
+  completions: 5
+  parallelism: 2
+```
+- completions: total successful pods needed
+
+- parallelism: how many run at the same time
+
+###  CronJobs
+Scheduled jobs that run at specific times like a cron task.
+
+```
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: db-backup
+spec:
+  schedule: "0 * * * *"  # every hour
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+            - name: backup
+              image: my-backup-image
+              args: ["backup.sh"]
+          restartPolicy: OnFailure
+```
+###  Clean Up Completed Jobs
+```
+kubectl delete jobs --all
+kubectl delete pod <pod-name>
+```
+or auto-cleanup using TTL (Time To Live):
+```
+spec:
+  ttlSecondsAfterFinished: 100
+```
+### Bonus Tips
+- Jobs are idempotent: they can be retried without negative side effects.
+
+- Always set restartPolicy: Never or OnFailure for jobs.
+
+- Monitor job success/failure with kubectl get jobs and kubectl describe job <job-name>.
