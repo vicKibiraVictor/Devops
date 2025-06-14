@@ -120,3 +120,8 @@ kubectl get deployment
 ```
 kubectl delete -f nginx-deployment.yaml
 ```
+
+### To check metrics of the current cpu and memory usage for the clusters pods or nodes
+```
+kubectl top
+```
