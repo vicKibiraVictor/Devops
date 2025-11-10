@@ -93,3 +93,51 @@ Deploy jupyter notebooks in docker
 
 
 
+
+
+
+
+
+
+
+#running postgres
+
+docker run -it \
+  -e POSTGRES_USER=root \
+  -e POSTGRES_PASSWORD=root \
+  -e POSTGRES_DB=root \
+  -p "5432:5432" \
+  -v postgres:/var/lib/postgresql:data
+ postgres
+
+
+docker run -it  -d \
+  --network pg-network \
+  --name postgres-three \
+  -e POSTGRES_USER=root \
+  -e POSTGRES_PASSWORD=root \
+  -e POSTGRES_DB=root \
+  -p 5432:5432 \
+  -v postgres:/var/lib/postgresql \
+  postgres
+
+
+  docker run -it \
+    --network pg-network \
+    --name pgadmin \
+    -e PGAMIN_DEFAULT_EMAIL=admin@admin.com \
+    -e PGADMIN_DEFAULT_PASSWORD=admin \
+    -p "8080":"8080" \
+   dpage/pdadmin4
+
+  VOLUMES-mount an external storage
+          persist data
+
+networks-allows multiple services to communicate with each other
+
+detached mode 
+
+docker compose ---yaml yml
+
+docker-compose.yaml
+docker-compose.yml
